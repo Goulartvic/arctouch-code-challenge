@@ -2,16 +2,16 @@ package com.arctouch.codechallenge.view.activity
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.arctouch.codechallenge.R
-import com.arctouch.codechallenge.base.BaseActivity
 import com.arctouch.codechallenge.data.Cache
 import com.arctouch.codechallenge.view.adapter.HomeAdapter
 import com.arctouch.codechallenge.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.home_activity.*
 
-class HomeActivity : BaseActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var viewModel: HomeViewModel
 
