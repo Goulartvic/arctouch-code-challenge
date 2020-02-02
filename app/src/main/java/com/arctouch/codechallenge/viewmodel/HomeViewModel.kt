@@ -13,7 +13,7 @@ class HomeViewModel : BaseViewModel() {
 
     var moviesLiveData = MutableLiveData<List<Movie>>()
     var genresLiveData = MutableLiveData<List<Genre>>()
-    var apiInstance = BaseApplication.apiInstance
+    private var apiInstance = BaseApplication.apiInstance
 
     fun getUpcomingMovies() {
 
@@ -21,9 +21,9 @@ class HomeViewModel : BaseViewModel() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    moviesLiveData.value = it.results.map { movie ->
+                    moviesLiveData.postValue(it.results.map { movie ->
                         movie.copy(genres = Cache.genres.filter { movie.genreIds?.contains(it.id) == true })
-                    }
+                    })
                 }
     }
 
@@ -32,7 +32,7 @@ class HomeViewModel : BaseViewModel() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    genresLiveData.value = it.genres
+                    genresLiveData.postValue(it.genres)
                 }
     }
 
