@@ -30,4 +30,10 @@ interface TmdbApi {
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String = BuildConfig.DEFAULT_LANGUAGE
     ): Observable<Movie>
+
+    @GET("search/movie")
+    fun movieByName(
+            @Query("query")title: String,
+            @Query("api_key")apiKey: String = BuildConfig.TMDB_API_KEY
+    ): Observable<UpcomingMoviesResponse>
 }
