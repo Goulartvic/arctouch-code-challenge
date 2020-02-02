@@ -19,7 +19,7 @@ class BaseApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         apiInstance = Retrofit.Builder()
-                .baseUrl(TmdbApi.URL)
+                .baseUrl(BuildConfig.BASE_URL)
                 .client(OkHttpClient.Builder().build())
                 .addConverterFactory(MoshiConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -30,7 +30,7 @@ class BaseApplication: Application() {
     }
 
     private fun getGenres() {
-        apiInstance.genres(TmdbApi.API_KEY, TmdbApi.DEFAULT_LANGUAGE)
+        apiInstance.genres()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {

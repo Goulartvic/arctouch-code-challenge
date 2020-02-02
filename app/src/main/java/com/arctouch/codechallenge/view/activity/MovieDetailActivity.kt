@@ -26,9 +26,11 @@ class MovieDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.movie_detail_activity)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
         val movieId = intent.extras?.getInt("id", 0)
+        val movieTitle = intent.extras?.getString("title", "Code Challenge")
+
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = movieTitle
 
         observeViewModel()
 
@@ -61,8 +63,8 @@ class MovieDetailActivity : AppCompatActivity() {
     }
 
     private fun setupCarousel(movie: Movie) {
-        urls = arrayOf(movieImageUrlBuilder.buildPosterUrl(movie.posterPath!!),
-                movieImageUrlBuilder.buildBackdropUrl(movie.backdropPath!!))
+        urls = arrayOf(movieImageUrlBuilder.buildBackdropUrl(movie.backdropPath!!),
+                movieImageUrlBuilder.buildPosterUrl(movie.posterPath!!))
 
         cvMovieImage.setImageListener { position, imageView ->
             imageView.scaleType = ImageView.ScaleType.FIT_CENTER

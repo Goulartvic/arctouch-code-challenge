@@ -45,8 +45,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
-        val viewHolder = ViewHolder(view)
-        return viewHolder
+        return ViewHolder(view)
     }
 
     fun setOnItemClickListener(listener:(item: Movie) -> Unit) {

@@ -15,6 +15,14 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        def tmdbApiKey = properties.getProperty("tmdb_api_key", "")
+
+        buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
+        buildConfigField "String", "DEFAULT_LANGUAGE", "\"pt-BR\""
+        buildConfigField "String", "TMDB_API_KEY", tmdbApiKey
     }
     buildTypes {
         debug {
