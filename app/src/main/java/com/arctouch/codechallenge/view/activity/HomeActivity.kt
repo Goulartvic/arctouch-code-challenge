@@ -30,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
         adapter.setOnItemClickListener {
             startActivity(
                     Intent(this, MovieDetailActivity::class.java)
-                            .putExtra("id", it.id)
+                            .putExtra("id", it.id).putExtra("title", it.title)
             )
         }
 
