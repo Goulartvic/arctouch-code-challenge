@@ -12,12 +12,10 @@ import io.reactivex.schedulers.Schedulers
 class HomeViewModel : BaseViewModel() {
 
     var moviesLiveData = MutableLiveData<List<Movie>>()
-    var genresLiveData = MutableLiveData<List<Genre>>()
     private var apiInstance = BaseApplication.apiInstance
 
-    fun getUpcomingMovies() {
-
-        apiInstance.upcomingMovies(TmdbApi.API_KEY, TmdbApi.DEFAULT_LANGUAGE, 1, TmdbApi.DEFAULT_REGION)
+    fun getUpcomingMovies(page: Long) {
+        apiInstance.upcomingMovies(TmdbApi.API_KEY, TmdbApi.DEFAULT_LANGUAGE, page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
@@ -26,14 +24,4 @@ class HomeViewModel : BaseViewModel() {
                     })
                 }
     }
-
-    fun getGenres() {
-        apiInstance.genres(TmdbApi.API_KEY, TmdbApi.DEFAULT_LANGUAGE)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    genresLiveData.postValue(it.genres)
-                }
-    }
-
 }

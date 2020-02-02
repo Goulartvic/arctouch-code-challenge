@@ -33,7 +33,7 @@
             <com.synnapps.carouselview.CarouselView
                 android:id="@+id/cvMovieImage"
                 android:layout_width="0dp"
-                android:layout_height="400dp"
+                android:layout_height="240dp"
                 app:fillColor="#FFFFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
                 tools:text="Star Wars" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvMovieReleaseDate"
+                android:id="@+id/tvMovieGenres"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -69,7 +69,7 @@
                 tools:text="Release Date: 20-20-2020" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvMovieGenres"
+                android:id="@+id/tvReleaseDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -78,7 +78,7 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvMovieReleaseDate"
+                app:layout_constraintTop_toBottomOf="@+id/tvMovieGenres"
                 tools:text="Genres: Sci-fi" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -93,7 +93,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvMovieGenres"
+                app:layout_constraintTop_toBottomOf="@+id/tvReleaseDate"
                 tools:text="Lucas ipsum dolor sit amet cade kal tusken raider melodie luuke fortuna calrissian dalonbian briqualon dunwell. Gizka xanatos subterrel logray fortuna. Nassau zam abregado carnor colton. Chagrian cody allana gonk letaki tagge oppo neimoidian t'landa. Ralter sullustan wat stele duros lars lah. Ugnaught porkins allana wharl. Ebe nadon nadon warrick han jax fode rhen ima-gun. Falleen vuffi nute var tython corellia. Evocii skywalker doldur rishi zuggs moff. Lyn bib glymphid garm bajic chirrpa. Wedge offee massassi x2 sesswenna ogemite lobot malastare." />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
