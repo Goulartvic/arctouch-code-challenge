@@ -1,5 +1,6 @@
 package com.arctouch.codechallenge.view.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,14 @@ import kotlinx.android.synthetic.main.home_activity.*
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var viewModel: HomeViewModel
+    private lateinit var adapter: HomeAdapter
+
+    private val itemOnClick: (View, Int, Int) -> Unit = { view, position, type ->
+        startActivity(
+                Intent(this, MovieDetailActivity::class.java)
+                        .putExtra("id", adapter.getItem(position).id)
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +37,8 @@ class HomeActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         viewModel.moviesLiveData.observe(this, Observer {
-            recyclerView.adapter = HomeAdapter(it)
+            adapter = HomeAdapter(it, itemOnClick)
+            recyclerView.adapter = adapter
             progressBar.visibility = View.GONE
         })
 
